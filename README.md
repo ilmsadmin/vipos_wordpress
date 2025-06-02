@@ -182,9 +182,9 @@ vipos/
 
 ## Hỗ trợ
 
-- **Email**: support@vipos.com
-- **Documentation**: [vipos.com/docs](https://vipos.com/docs)
-- **GitHub**: [github.com/vipos/wordpress-plugin](https://github.com/vipos/wordpress-plugin)
+- **Email**: support@vipos.vn
+- **Documentation**: [vipos.vn/docs](https://vipos.vn/docs)
+- **GitHub**: [github.com/ilmsadmin/vipos_wordpress](https://github.com/ilmsadmin/vipos_wordpress)
 
 ## License
 

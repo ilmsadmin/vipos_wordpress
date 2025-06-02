@@ -1,0 +1,146 @@
+/**
+ * VIPOS Future Development Styles
+ * Used for pages under development in Phase 2
+ */
+
+/* General future development notice styles */
+.vipos-future-notice {
+    border-left: 4px solid #007cba !important;
+    padding: 20px !important;
+    margin: 20px 0 !important;
+    background: #f0f6fc !important;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.vipos-future-notice h2 {
+    color: #007cba !important;
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+    font-size: 20px;
+}
+
+.vipos-future-notice .future-main-message {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #1e3a5f !important;
+    margin-bottom: 15px !important;
+}
+
+/* Dimmed content styles */
+.vipos-settings-dimmed,
+.vipos-content-dimmed {
+    opacity: 0.4;
+    pointer-events: none;
+    position: relative;
+    user-select: none;
+}
+
+.vipos-settings-dimmed::before,
+.vipos-content-dimmed::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 10;
+    cursor: not-allowed;
+}
+
+/* Clickable overlay for interaction feedback */
+.vipos-settings-dimmed::after,
+.vipos-content-dimmed::after {
+    content: 'This feature will be available in Phase 2';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 124, 186, 0.9);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    z-index: 11;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.vipos-settings-dimmed:hover::after,
+.vipos-content-dimmed:hover::after {
+    opacity: 1;
+}
+
+/* Hide duplicate title in dimmed content */
+.vipos-settings-dimmed .wrap h1,
+.vipos-content-dimmed .wrap h1 {
+    display: none !important;
+}
+
+.vipos-settings-dimmed .wrap {
+    margin: 0 !important;
+}
+
+/* Future development badge */
+.vipos-future-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #007cba, #005a87);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 10px;
+    box-shadow: 0 2px 4px rgba(0, 124, 186, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .vipos-future-notice {
+        padding: 15px !important;
+        margin: 15px 0 !important;
+    }
+    
+    .vipos-future-notice h2 {
+        font-size: 18px;
+    }
+    
+    .vipos-settings-dimmed::after,
+    .vipos-content-dimmed::after {
+        font-size: 12px;
+        padding: 12px 20px;
+        max-width: 80%;
+        text-align: center;
+        white-space: normal;
+    }
+}
+
+/* Animation for better UX */
+@keyframes futureNoticeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.vipos-future-notice {
+    animation: futureNoticeSlideIn 0.5s ease-out;
+}
+
+/* Interactive hover effects */
+.vipos-future-notice:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 124, 186, 0.15);
+    transition: all 0.3s ease;
+}

@@ -172,14 +172,10 @@ class VIPOS {
         
         // Initialize components
         $this->init_components();
-        
-        // Load admin functionality
+          // Load admin functionality
         if (is_admin()) {
             $this->init_admin();
         }
-        
-        // Initialize REST API
-        add_action('rest_api_init', array($this, 'init_rest_api'));
         
         // Add AJAX hooks
         $this->init_ajax();
@@ -228,15 +224,7 @@ class VIPOS {
         if (is_admin()) {
             require_once VIPOS_PLUGIN_PATH . 'admin/class-vipos-admin.php';
             require_once VIPOS_PLUGIN_PATH . 'admin/class-vipos-settings.php';
-            require_once VIPOS_PLUGIN_PATH . 'admin/receipt-temp.php';
-        }
-        
-        // API classes
-        require_once VIPOS_PLUGIN_PATH . 'includes/api/class-vipos-rest-api.php';
-        require_once VIPOS_PLUGIN_PATH . 'includes/api/class-vipos-products-api.php';
-        require_once VIPOS_PLUGIN_PATH . 'includes/api/class-vipos-cart-api.php';
-        require_once VIPOS_PLUGIN_PATH . 'includes/api/class-vipos-orders-api.php';
-        require_once VIPOS_PLUGIN_PATH . 'includes/api/class-vipos-customers-api.php';
+            require_once VIPOS_PLUGIN_PATH . 'admin/receipt-temp.php';        }
     }
     
     /**
@@ -259,15 +247,7 @@ class VIPOS {
         VIPOS_Admin::instance();
         VIPOS_Settings::instance();
     }
-    
-    /**
-     * Initialize REST API
-     */
-    public function init_rest_api() {
-        VIPOS_REST_API::instance();
-    }
-    
-    /**
+      /**
      * Initialize AJAX handlers
      */
     private function init_ajax() {
