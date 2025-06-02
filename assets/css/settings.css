@@ -1,0 +1,771 @@
+/**
+ * VIPOS Settings CSS - Modern Blue Theme
+ * Styling for the VIPOS settings admin page
+ */
+
+/* CSS Variables for Modern Design */
+:root {
+    --vipos-primary: #1e40af;
+    --vipos-primary-light: #3b82f6;
+    --vipos-primary-dark: #1e3a8a;
+    --vipos-secondary: #06b6d4;
+    --vipos-accent: #8b5cf6;
+    --vipos-success: #10b981;
+    --vipos-warning: #f59e0b;
+    --vipos-error: #ef4444;
+    --vipos-gray-50: #f8fafc;
+    --vipos-gray-100: #f1f5f9;
+    --vipos-gray-200: #e2e8f0;
+    --vipos-gray-300: #cbd5e1;
+    --vipos-gray-400: #94a3b8;
+    --vipos-gray-500: #64748b;
+    --vipos-gray-600: #475569;
+    --vipos-gray-700: #334155;
+    --vipos-gray-800: #1e293b;
+    --vipos-gray-900: #0f172a;
+    --vipos-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --vipos-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --vipos-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --vipos-radius: 12px;
+    --vipos-radius-lg: 16px;
+}
+
+/* Main Settings Container */
+.vipos-settings-container {
+    max-width: 1200px;
+    margin: 20px 0;
+    background: white;
+    border: none;
+    border-radius: var(--vipos-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--vipos-shadow-lg);
+    border: 1px solid var(--vipos-gray-200);
+}
+
+/* Header */
+.vipos-settings-header {
+    background: linear-gradient(135deg, var(--vipos-primary) 0%, var(--vipos-primary-dark) 100%);
+    color: white;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.vipos-settings-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.vipos-settings-header h1 {
+    color: white;
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.vipos-settings-header .dashicons {
+    margin-right: 16px;
+    font-size: 32px;
+}
+
+.vipos-version {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Navigation Tabs */
+.vipos-nav-tabs {
+    background: linear-gradient(135deg, var(--vipos-gray-50) 0%, var(--vipos-gray-100) 100%);
+    border-bottom: 2px solid var(--vipos-gray-200);
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.vipos-nav-tabs ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.vipos-nav-tabs li {
+    margin: 0;
+}
+
+.vipos-nav-tabs a {
+    display: block;
+    padding: 20px 28px;
+    text-decoration: none;
+    color: var(--vipos-gray-600);
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 14px;
+    position: relative;
+    overflow: hidden;
+}
+
+.vipos-nav-tabs a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--vipos-primary) 0%, var(--vipos-primary-light) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.vipos-nav-tabs a span {
+    position: relative;
+    z-index: 1;
+}
+
+.vipos-nav-tabs a:hover,
+.vipos-nav-tabs a:focus {
+    color: white;
+    transform: translateY(-2px);
+}
+
+.vipos-nav-tabs a:hover::before {
+    opacity: 1;
+}
+
+.vipos-nav-tabs a.active {
+    color: var(--vipos-primary);
+    border-bottom-color: var(--vipos-primary);
+    background: white;
+    box-shadow: var(--vipos-shadow-sm);
+}
+
+.vipos-nav-tabs a.active::before {
+    opacity: 0;
+}
+
+/* Tab Content */
+.vipos-tab-content {
+    padding: 40px;
+    min-height: 500px;
+    background: linear-gradient(135deg, var(--vipos-gray-50) 0%, #ffffff 100%);
+}
+
+.vipos-tab-pane {
+    display: none;
+}
+
+.vipos-tab-pane.active {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Form Sections */
+.vipos-form-section {
+    margin-bottom: 48px;
+    padding: 32px;
+    background: white;
+    border-radius: var(--vipos-radius-lg);
+    box-shadow: var(--vipos-shadow-md);
+    border: 1px solid var(--vipos-gray-200);
+    transition: all 0.3s ease;
+}
+
+.vipos-form-section:hover {
+    box-shadow: var(--vipos-shadow-lg);
+    transform: translateY(-2px);
+}
+
+.vipos-form-section:last-child {
+    margin-bottom: 0;
+}
+
+.vipos-form-section h3 {
+    margin: 0 0 24px 0;
+    padding: 0 0 16px 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--vipos-gray-800);
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid var(--vipos-gray-100);
+}
+
+.vipos-form-section h3 .dashicons {
+    margin-right: 12px;
+    color: var(--vipos-primary);
+    font-size: 24px;
+}
+
+.vipos-form-section p.description {
+    margin: 0 0 24px 0;
+    color: var(--vipos-gray-500);
+    font-style: italic;
+    line-height: 1.6;
+}
+
+/* Form Fields */
+.vipos-form-group {
+    margin-bottom: 32px;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.vipos-form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--vipos-gray-800);
+    min-width: 200px;
+    flex-shrink: 0;
+    font-size: 14px;
+}
+
+.vipos-form-group .form-control {
+    flex: 1;
+    min-width: 300px;
+}
+
+.vipos-form-group input[type="text"],
+.vipos-form-group input[type="email"],
+.vipos-form-group input[type="number"],
+.vipos-form-group textarea,
+.vipos-form-group select {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 16px;
+    border: 2px solid var(--vipos-gray-200);
+    border-radius: var(--vipos-radius);
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: white;
+    box-shadow: var(--vipos-shadow-sm);
+}
+
+.vipos-form-group input:focus,
+.vipos-form-group textarea:focus,
+.vipos-form-group select:focus {
+    outline: none;
+    border-color: var(--vipos-primary);
+    box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.1);
+    transform: translateY(-1px);
+}
+
+.vipos-form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+    font-family: inherit;
+}
+
+.vipos-form-group .form-help {
+    width: 100%;
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--vipos-gray-500);
+    font-style: italic;
+    line-height: 1.5;
+}
+
+/* Checkbox/Radio Groups */
+.vipos-checkbox-group,
+.vipos-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    background: var(--vipos-gray-50);
+    border-radius: var(--vipos-radius);
+    border: 1px solid var(--vipos-gray-200);
+}
+
+.vipos-checkbox-item,
+.vipos-radio-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    border-radius: var(--vipos-radius);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.vipos-checkbox-item:hover,
+.vipos-radio-item:hover {
+    background: white;
+    box-shadow: var(--vipos-shadow-sm);
+}
+
+.vipos-checkbox-item input[type="checkbox"],
+.vipos-radio-item input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--vipos-primary);
+    cursor: pointer;
+}
+
+.vipos-checkbox-item label,
+.vipos-radio-item label {
+    margin: 0;
+    min-width: auto;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--vipos-gray-700);
+}
+
+/* Select2 Customization */
+.select2-container {
+    width: 100% !important;
+}
+
+.select2-container--default .select2-selection--single {
+    height: 44px;
+    border: 2px solid var(--vipos-gray-200);
+    border-radius: var(--vipos-radius);
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+}
+
+.select2-container--default .select2-selection--single:focus-within {
+    border-color: var(--vipos-primary);
+    box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.1);
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 26px;
+    padding-left: 0;
+    color: var(--vipos-gray-800);
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 40px;
+}
+
+/* Modern Buttons */
+.vipos-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--vipos-primary) 0%, var(--vipos-primary-dark) 100%);
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: var(--vipos-radius);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    line-height: 1.4;
+    box-shadow: var(--vipos-shadow-sm);
+}
+
+.vipos-btn:hover,
+.vipos-btn:focus {
+    background: linear-gradient(135deg, var(--vipos-primary-light) 0%, var(--vipos-primary) 100%);
+    color: white;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: var(--vipos-shadow-md);
+}
+
+.vipos-btn.btn-secondary {
+    background: linear-gradient(135deg, var(--vipos-gray-500) 0%, var(--vipos-gray-600) 100%);
+}
+
+.vipos-btn.btn-secondary:hover {
+    background: linear-gradient(135deg, var(--vipos-gray-600) 0%, var(--vipos-gray-700) 100%);
+}
+
+.vipos-btn.btn-danger {
+    background: linear-gradient(135deg, var(--vipos-error) 0%, #dc2626 100%);
+}
+
+.vipos-btn.btn-danger:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+}
+
+.vipos-btn.btn-success {
+    background: linear-gradient(135deg, var(--vipos-success) 0%, #059669 100%);
+}
+
+.vipos-btn.btn-success:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+.vipos-btn:disabled {
+    background: var(--vipos-gray-300);
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Button Groups */
+.vipos-btn-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+/* File Upload */
+.vipos-file-upload {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.vipos-file-upload input[type="file"] {
+    display: none;
+}
+
+.vipos-file-upload-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #f1f1f1;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.vipos-file-upload-btn:hover {
+    background: #e1e1e1;
+}
+
+.vipos-file-name {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Color Picker */
+.vipos-color-picker {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.vipos-color-picker input[type="text"] {
+    width: 120px;
+}
+
+.vipos-color-preview {
+    width: 40px;
+    height: 38px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Alerts */
+.vipos-alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.vipos-alert .dashicons {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.vipos-alert.alert-success {
+    background: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.vipos-alert.alert-warning {
+    background: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.vipos-alert.alert-error {
+    background: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.vipos-alert.alert-info {
+    background: #cce7ff;
+    border-color: #b8daff;
+    color: #004085;
+}
+
+/* Loading States */
+.vipos-loading {
+    position: relative;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.vipos-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #0073aa;
+    border-radius: 50%;
+    border-right-color: transparent;
+    animation: vipos-spin 1s linear infinite;
+}
+
+@keyframes vipos-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Receipt Preview */
+.vipos-receipt-preview {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px;
+    max-width: 300px;
+    margin-top: 20px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.vipos-receipt-preview h4 {
+    text-align: center;
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.vipos-receipt-preview .receipt-line {
+    border-bottom: 1px dashed #ccc;
+    margin: 10px 0;
+    padding-bottom: 10px;
+}
+
+/* Tax Configuration */
+.vipos-tax-rates {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.vipos-tax-rates-header {
+    background: #f1f1f1;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    font-weight: 600;
+}
+
+.vipos-tax-rate-item {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.vipos-tax-rate-item:last-child {
+    border-bottom: none;
+}
+
+.vipos-tax-rate-info {
+    flex: 1;
+}
+
+.vipos-tax-rate-name {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.vipos-tax-rate-description {
+    font-size: 12px;
+    color: #666;
+}
+
+.vipos-tax-rate-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Access Control */
+.vipos-user-permissions {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.vipos-user-item {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.vipos-user-item:last-child {
+    border-bottom: none;
+}
+
+.vipos-user-info {
+    flex: 1;
+}
+
+.vipos-user-name {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.vipos-user-role {
+    font-size: 12px;
+    color: #666;
+}
+
+.vipos-user-permissions-toggle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .vipos-settings-container {
+        margin: 10px;
+    }
+    
+    .vipos-form-group {
+        flex-direction: column;
+    }
+    
+    .vipos-form-group label {
+        min-width: auto;
+        margin-bottom: 5px;
+    }
+    
+    .vipos-form-group .form-control {
+        min-width: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .vipos-settings-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .vipos-nav-tabs ul {
+        flex-wrap: wrap;
+    }
+    
+    .vipos-nav-tabs a {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    .vipos-tab-content {
+        padding: 20px 15px;
+    }
+    
+    .vipos-btn-group {
+        flex-direction: column;
+    }
+    
+    .vipos-btn-group .vipos-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* WordPress Admin Compatibility */
+.wp-admin .vipos-settings-container * {
+    box-sizing: border-box;
+}
+
+.wp-admin .vipos-settings-container h1,
+.wp-admin .vipos-settings-container h2,
+.wp-admin .vipos-settings-container h3 {
+    font-family: inherit;
+}
+
+/* Import/Export Section */
+.vipos-import-export {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.vipos-import-export h4 {
+    margin: 0 0 15px 0;
+    color: #333;
+}
+
+.vipos-import-export-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.vipos-import-export-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-width: 150px;
+}
+
+.vipos-import-export-item .dashicons {
+    font-size: 32px;
+    color: #0073aa;
+}
+
+.vipos-import-export-item h5 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.vipos-import-export-item p {
+    margin: 0;
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+}
